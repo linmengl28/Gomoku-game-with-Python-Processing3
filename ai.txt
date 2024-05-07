@@ -1,0 +1,32 @@
+Did you attempt to make your computer player very smart -- i.e., do something more clever than just pick a random legal move?
+If so, were you able to accomplish this? Is your computer player as smart as you would like?
+Yes.
+
+How did you determine which piece to play next? Tell us about your “pick next move” algorithm
+Computer will take a defensive move(block the player) or offensive move(try to win),
+or random move. The very first choice of the move is to win the game.
+DEFENSIVE MOVE: If player have consecutive stones on the board, computer will block it.
+It is realized by predicting the next move of player. The next move could be any other place that
+is not taken on the board. Computer will find the coordinate that if player put stone on, there
+will show up the longest consecutive stones. So computer will put its stone the coordinate so that
+player cannot build long consecutive stones.
+OFFENSIVE MOVE: Computer will always put its stone on the coordinate that can make it win.
+Than ,try to make its own longest consecutive stones.
+RANDOM MOVE: If there is no chance for defensive move or offensive move. Computer move randomly.
+
+
+How often did your computer program beat you, or your friends, or whoever tested it out for you?
+About 35% of the games, the computer could win.
+
+How easy would it be to make the difficulty level adjustable?
+To make it easier, we can change the type of inter_ls of board.py from set to list.
+That is, computer will always check from the very top of the board and prioritize the stone on upper
+side or left side of player's stones. So the right side and lower side of the player stones will not be blocked.
+To make it even easier. That is, after doing the abov, in the game_controller.py check_longest() function, change the type of 
+{(1, 0), (0, 1), (1, 1), (1, -1)} to list. So that checking horizontally will be prioritized. So building 
+consecutive stones diagonally will have more chance to win.
+
+How would you improve it in the future?
+Computer predicts one move ahead. To make it more clever. we can make computer make 2 or 3 steps
+ahead. And when making defensive or offensive move, if the consecutive stones approach the boundary
+of the board and there is no chance to win, computer will choose other place.
